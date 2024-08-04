@@ -1,0 +1,33 @@
+.nav {
+    display: flex;
+    justify-content: flex-end;
+    padding: 1rem;
+  }
+  
+  .signInButton,
+  .registerButton {
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  
+  .signInButton {
+    background-color: #3498db;
+    color: white;
+    margin-right: 1rem;
+  }
+  
+  .signInButton:hover {
+    background-color: #2980b9;
+  }
+  
+  .registerButton {
+    background-color: #2ecc71;
+    color: white;
+  }
+  
+  .registerButton:hover {
+    background-color: #27ae60;
+  }
+  

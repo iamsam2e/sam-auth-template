@@ -1,27 +1,38 @@
-// src/app/page.tsx
 import Link from "next/link";
+import Nav from "@/components/Nav";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gray-100 flex flex-col justify-center items-center">
-      <h1 className="text-4xl font-bold mb-8">NextJS Auth Template</h1>
-      <h3 className="text-5xl font-sans mb-6">
-        This app uses Prisma, NextAuth and Tailwind
-      </h3>
-      <div className="space-y-4">
-        <Link
-          href="/auth/signin"
-          className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
-        >
-          Sign In
-        </Link>
-        <Link
-          href="/auth/register"
-          className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded ml-4"
-        >
-          Register
-        </Link>
-      </div>
+    <div className="min-h-screen flex flex-col">
+           <header className="flex justify-between items-center p-4">
+        <h1 className="text-4xl font-bold">NextJS Auth Template</h1>
+        <Nav />
+      </header>
+      <main className="flex-grow p-8">
+        <section className="mb-8">
+          <h2 className="text-3xl font-bold mb-4">About This Template</h2>
+          <p>
+            This app uses Prisma, NextAuth and Tailwind to provide a robust
+            authentication system with a clean, responsive design.
+          </p>
+        </section>
+        <section className="mb-8">
+          <h2 className="text-3xl font-bold mb-4">Features</h2>
+          <ul className="list-disc list-inside">
+            <li>User authentication with NextAuth</li>
+            <li>Database integration with Prisma</li>
+            <li>Responsive design with Tailwind CSS</li>
+            <li>TypeScript support</li>
+          </ul>
+        </section>
+        <section>
+          <h2 className="text-3xl font-bold mb-4">Getting Started</h2>
+          <p>
+            To use this template, clone the repository and follow the setup
+            instructions in the README file.
+          </p>
+        </section>
+      </main>
     </div>
   );
 }
