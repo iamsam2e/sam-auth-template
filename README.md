@@ -40,7 +40,7 @@ I have setup some sample schema in the prisma folder and you're welcome to use t
 
 - The project uses Railway for PostgreSQL hosting. Make sure to update the DATABASE_URL in your .env file with the correct credentials.
 - bcryptjs is used for password hashing. Ensure you have @types/bcryptjs installed for TypeScript support.
-- The main page layout is componentized with a separate Nav component for better organization.
+- The main page layout is componentized with a separate Nav component for better organisation.
 - Styled modules are used for component-specific styling, allowing for better CSS isolation.
 
 ## Deployment
