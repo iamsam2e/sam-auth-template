@@ -1,0 +1,72 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id             String         @id @default(cuid())
+  email          String         @unique
+  name           String?
+  password       String
+  createdAt      DateTime       @default(now())
+  updatedAt      DateTime       @updatedAt
+  profile        Profile?
+  meals          Meal[]
+  nutritionGoal  NutritionGoal?
+}
+
+model Profile {
+  id           String   @id @default(cuid())
+  userId       String   @unique
+  user         User     @relation(fields: [userId], references: [id])
+  height       Float?
+  weight       Float?
+  age          Int?
+  gender       String?
+  activityLevel String?
+  goalWeight   Float?
+  dailyCalories Int?
+}
+
+model Meal {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  name      String
+  date      DateTime
+  foods     Food[]
+}
+
+model Food {
+  id          String   @id @default(cuid())
+  mealId      String
+  meal        Meal     @relation(fields: [mealId], references: [id])
+  name        String
+  calories    Int
+  protein     Float
+  carbs       Float
+  fat         Float
+  fiber       Float?
+  servingSize String?
+}
+
+model NutritionGoal {
+  id        String   @id @default(cuid())
+  userId    String   @unique
+  user      User     @relation(fields: [userId], references: [id])
+  calories  Int
+  protein   Float
+  carbs     Float
+  fat       Float
+  fiber     Float?
+}

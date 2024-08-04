@@ -1,33 +1,36 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+  --background-color: #000000;
+  --text-color: #ffffff;
+  --header-color: #FF8C00;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+h1, h2, h3, h4, h5, h6 {
+  color: var(--header-color);
+}
+
+/* Override any light mode specific classes */
+.bg-gray-100 {
+  background-color: #1a1a1a;
+}
+
+.text-black {
+  color: var(--text-color);
+}
+
+/* Adjust input fields for dark mode */
+input, textarea, select {
+  background-color: #333;
+  color: var(--text-color);
+  border-color: #555;
+}
+
+/* Adjust button styles if needed */
+button {
+  background-color: var(--header-color);
+  color: var(--background-color);
 }
